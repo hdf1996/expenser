@@ -1,0 +1,20 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+
+  .input{
+    margin-top: 8px;
+    display: block;
+    color: black;
+    border: 0;
+    padding: 0;
+    padding-bottom: 3px;
+    font-size: 22px;
+    border-bottom: 1px solid #cdcdcd;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
