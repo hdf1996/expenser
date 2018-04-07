@@ -3,7 +3,6 @@ import flush from 'styled-jsx/server'
 
 import Header from '../components/Header';
 
-
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     const { html, head, errorHtml, chunks } = renderPage()
