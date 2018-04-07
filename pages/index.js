@@ -1,13 +1,13 @@
+import { Fragment } from 'react';
 import './base.scss'
 import Card from '../components/Card';
 import Header from '../components/Header';
+import FloatButton from '../components/FloatButton';
 
 export default () => (
-  <div>
-    <Header title="Tarjetas de credito"/>
-    <div className="container">
+  <Fragment>
+    {[1, 2].map(() => <Card/>)}
 
-      {[1, 2].map(() => <Card/>)}
-    </div>
-  </div>
+    <FloatButton />
+  </Fragment>
 )

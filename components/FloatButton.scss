@@ -1,0 +1,15 @@
+.float-button {
+  display: flex;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  height: 64px;
+  width: 64px;
+  border-radius: 60px;
+  color: white;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  background: linear-gradient(130deg,rgba(255,255,255,.5),rgba(255,255,255,0) 33%,rgba(255,255,255,0)),linear-gradient(104deg,#5ea0cf,#498ebe),linear-gradient(#5ea0cf,#5ea0cf)
+}
