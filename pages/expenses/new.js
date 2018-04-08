@@ -9,10 +9,10 @@ import {create} from '../../services/movements';
 class New extends Component {
   state = { errors: {}, amount_currency: 'clp', done_at: new Date().toISOString().substr(0, 10), origin: 'Caja de ahorro'}
   VALIDATORS = {
-    // reason: [presence()],
-    // amount_cents: [presence()],
-    // origin: [presence()],
-    // amount_currency: [presence()], // inclussion
+    reason: [presence()],
+    amount_cents: [presence()],
+    origin: [presence()],
+    amount_currency: [presence()], // inclussion
     done_at: [presence()]
   };
 
