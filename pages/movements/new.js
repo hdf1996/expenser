@@ -3,11 +3,12 @@ import { withRouter } from 'next/router'
 import React, { Component } from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import {presence, validate} from '../../validators';
-import {create} from '../../services/movements';
+import { presence, validate } from '../../validators';
+import { create } from '../../services/movements';
 
 class New extends Component {
-  state = { errors: {}, amount_currency: 'clp', done_at: new Date().toISOString().substr(0, 10), origin: 'Caja de ahorro'}
+  state = { errors: {}, amount_currency: 'clp', origin: 'Caja de ahorro',
+            done_at: new Date().toISOString().substr(0, 10)}
   VALIDATORS = {
     reason: [presence()],
     amount_cents: [presence()],

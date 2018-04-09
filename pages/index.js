@@ -18,6 +18,6 @@ export default () => (
           thirdColumnName="Fima"
           thirdColumnValues={fima}/>
 
-    <FloatButton path="/expenses/new"/>
+    <FloatButton path="/movements/new"/>
   </Fragment>
 )
