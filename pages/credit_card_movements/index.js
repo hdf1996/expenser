@@ -3,10 +3,12 @@ import { withRouter } from 'next/router'
 import React, { Component } from 'react';
 import Spinner from '../../components/Spinner';
 import { presence, validate } from '../../validators';
-import { create } from '../../services/movements';
+import { index } from '../../services/creditCardMovements';
 
-class New extends Component {
-  state = { expenses: [], loading: true}
+class Index extends Component {
+  state = { creditCardMovements: [], loading: true}
+
+  componentDidMount = () => index({}).then(res => this.setState({ creditCardMovements: res.page, loading: false }))
 
   render () {
     if (this.state.loading) {
@@ -18,10 +20,10 @@ class New extends Component {
     }
     return (
       <div>
-        h
+        {this.state.creditCardMovements.length}
       </div>
     )
   }
 }
 
-export default withRouter(New);
+export default withRouter(Index);
