@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
+  "alias": "expenser.now.sh",
   "dependencies": {
     "@zeit/next-sass": "^0.1.2",
     "next": "^5.1.0",
