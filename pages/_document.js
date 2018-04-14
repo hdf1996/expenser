@@ -1,7 +1,7 @@
+import '../components/Sidebar.scss';
+
 import Document, { Head, Main, NextScript } from 'next/document'
 import flush from 'styled-jsx/server'
-
-import Header from '../components/Header';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -18,12 +18,7 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <body>
-          <div>
-            <Header title="Tarjetas de credito"/>
-            <div className="container">
-              <Main />
-            </div>
-          </div>
+          <Main />
           <NextScript />
         </body>
       </html>

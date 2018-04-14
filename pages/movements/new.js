@@ -3,6 +3,7 @@ import { withRouter } from 'next/router'
 import React, { Component } from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Layout from '../../components/Layout';
 import { presence, validate } from '../../validators';
 import { create } from '../../services/movements';
 
@@ -35,7 +36,7 @@ class New extends Component {
 
   render () {
     return (
-      <div>
+      <Layout>
         <Input value={this.state.reason}
                error={this.state.errors.reason}
                name="Razon"
@@ -63,7 +64,7 @@ class New extends Component {
                 disabled={!this.isValid() || this.state.loading}
                 loading={this.state.loading}
                 onSubmit={this.onSubmit}/>
-      </div>
+      </Layout>
     )
   }
 }

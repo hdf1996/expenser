@@ -1,16 +1,18 @@
 import './Header.scss';
+import './Sidebar.scss';
 
 import Hamburger from './Hamburger';
 
-const Header = ({title}) => (
+const Header = ({title, onClick}) => (
   <div className="header flex-align-center">
-    <Hamburger />
+    <Hamburger onClick={onClick}/>
     <h2>{title}</h2>
   </div>
 )
 
 Header.defaultProps = {
-  title: ''
+  title: '',
+  onClick: () => {}
 }
 
 export default Header;

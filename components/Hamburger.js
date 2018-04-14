@@ -1,11 +1,15 @@
 import './Hamburger.scss';
 
-const Hamburger = () => (
-  <div className="hamburger">
+const Hamburger = ({onClick}) => (
+  <div className="hamburger" onClick={onClick}>
     <span />
     <span />
     <span />
   </div>
 );
+
+Hamburger.defaultProps = {
+  onClick: () => {}
+}
 
 export default Hamburger;
