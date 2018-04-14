@@ -1,8 +1,11 @@
 import './SidebarItem.scss';
 import Link from 'next/link'
 
-const SidebarItem = ({text, path, onClick}) => (
-  <Link href={path} onClick={onClick}>
+const SidebarItem = ({
+  text,
+  path
+}) => (
+  <Link href={path}>
     <a className="sidebar-item unselectable">
       {text}
     </a>
@@ -11,8 +14,7 @@ const SidebarItem = ({text, path, onClick}) => (
 
 SidebarItem.defaultProps = {
   text: '',
-  path: '/',
-  onClick: () => {}
+  path: '/'
 }
 
 export default SidebarItem

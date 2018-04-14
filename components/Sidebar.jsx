@@ -6,11 +6,14 @@ const Sidebar = ({visible, onBlur}) => (
   <div className={`sidebar-container ${visible ? 'sidebar-visible' : 'sidebar-hidden'}`}>
     <div className="sidebar">
       <SidebarItem text="Inicio"
-                   path="/"/>
+                   path="/"
+                   key="home-sidebar"/>
       <SidebarItem text="Agregar gasto"
-                   path="/movements/new"/>
+                   path="/movements/new"
+                   key="add-expense-sidebar"/>
       <SidebarItem text="Ultimos consumos"
-                   path="/credit_card_movements"/>
+                   path="/credit_card_movements"
+                   key="credit-card-movements-sidebar"/>
     </div>
     <div className="overlay" onClick={onBlur}/>
   </div>
