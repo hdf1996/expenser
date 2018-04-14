@@ -19,12 +19,12 @@ export default () => (
           thirdColumnValues={fima}/>
     <Card title="Monedas"
           className="orange"
-          firstColumnName="Dolar"
-          firstColumnValues={['20,15 USD']}
-          secondColumnName="Euro"
-          secondColumnValues={['26,15 EUR']}
-          thirdColumnName="Peso chileno"
-          thirdColumnValues={['0,03 USD']}/>
+          firstColumnName="1 Dolar"
+          firstColumnValues={['20,15 ARS']}
+          secondColumnName="1 Euro"
+          secondColumnValues={['26,15 ARS']}
+          thirdColumnName="1 Peso chileno"
+          thirdColumnValues={['0,03 ARS']}/>
 
     <FloatButton path="/movements/new"/>
   </Layout>
