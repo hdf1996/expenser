@@ -1,10 +1,11 @@
 import './Hamburger.scss';
 
 const Hamburger = ({onClick}) => (
-  <div className="hamburger" onClick={onClick}>
-    <span />
-    <span />
-    <span />
+  <div className="hamburger unselectable"
+       onClick={onClick}>
+    <span className="unselectable"/>
+    <span className="unselectable"/>
+    <span className="unselectable"/>
   </div>
 );
 

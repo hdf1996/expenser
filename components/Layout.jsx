@@ -1,3 +1,4 @@
+const isProd = process.env.NODE_ENV === 'production'
 import { Fragment, Component } from 'react';
 
 import Sidebar from '../components/Sidebar';
@@ -12,16 +13,16 @@ class Layout extends Component {
     Router.onRouteChangeStart = url => {
       this.setState({showSidebar: false})
     }
-    // if ('serviceWorker' in navigator) {
-    //   navigator.serviceWorker
-    //     .register('/sw.js')
-    //     .then(registration => {
-    //       console.log('service worker registration successful')
-    //     })
-    //     .catch(err => {
-    //       console.warn('service worker registration failed', err.message)
-    //     })
-    // }
+    if (isProd && 'serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(registration => {
+          console.log('service worker registration successful')
+        })
+        .catch(err => {
+          console.warn('service worker registration failed', err.message)
+        })
+    }
   }
 
   render () {
