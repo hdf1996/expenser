@@ -12,16 +12,16 @@ class Layout extends Component {
     Router.onRouteChangeStart = url => {
       this.setState({showSidebar: false})
     }
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then(registration => {
-          console.log('service worker registration successful')
-        })
-        .catch(err => {
-          console.warn('service worker registration failed', err.message)
-        })
-    }
+    // if ('serviceWorker' in navigator) {
+    //   navigator.serviceWorker
+    //     .register('/sw.js')
+    //     .then(registration => {
+    //       console.log('service worker registration successful')
+    //     })
+    //     .catch(err => {
+    //       console.warn('service worker registration failed', err.message)
+    //     })
+    // }
   }
 
   render () {
