@@ -1,6 +1,7 @@
 const withSass = require('@zeit/next-sass')
 const path = require('path')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const webpack = require('webpack');
 // const merge = require('webpack-merge');
 // const webpack = require('webpack');
 //
@@ -10,6 +11,9 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 module.exports = withSass({
   webpack: (config, {dev}) => {
     if(!dev){
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': process.env.NODE_ENV,
+      })
       config.plugins.push(new SWPrecacheWebpackPlugin({
         cacheId: 'test-lighthouse',
         filepath: path.resolve('./static/sw.js'),
