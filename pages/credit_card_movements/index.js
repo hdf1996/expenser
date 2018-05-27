@@ -9,29 +9,24 @@ import { presence, validate } from '../../validators';
 import { index } from '../../services/creditCardMovements';
 
 class Index extends Component {
-  state = { creditCardMovements: null, loading: true, page: 1}
+  state = { creditCardMovements: [], loading: true, nextPage: 1}
 
   componentDidMount = () => this.fetch()
   fetch = () => {
-    index({}).then(
-      res => this.setState({ creditCardMovements: res.page, loading: false })
-    )
-  }
-  fetchNextPage = () => {
-    if(this.state.loading) return;
+    if(this.state.nextPage === null) return;
     this.setState({ loading: true }, () => {
-      index({page: this.state.page + 1}).then(
+      index({page: this.state.nextPage}).then(
         res => this.setState({
           creditCardMovements: [...this.state.creditCardMovements, ...res.page],
           loading: false,
-          page: this.state.page + 1
+          nextPage: res.next_page
         })
       )
     })
   }
 
   render () {
-    if (this.state.loading && this.state.creditCardMovements === null) {
+    if (this.state.loading && this.state.creditCardMovements.length === 0) {
       return (
         <div className="flex-align-center flex-justify-center full-height full-width">
           <Spinner color="orange"/>
@@ -40,7 +35,7 @@ class Index extends Component {
     }
     return (
       <Layout className="items-list padding-top-15">
-        <InfiniteScrollContainer onNextPage={() => this.fetchNextPage()}
+        <InfiniteScrollContainer onNextPage={() => this.fetch()}
                                  loading={this.state.loading}>
           {this.state.creditCardMovements.map(creditCardMovement => (
             <CreditCardMovement id={creditCardMovement.id}
