@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const CreditCardMovement = ({
   id,
   reason,
@@ -8,7 +10,7 @@ const CreditCardMovement = ({
   <div className="flex-justify-space-between margin-bottom-15 min-height-40">
     <div className="flex-column">
       <span className="bold">{reason}</span>
-      <span className="light">{done_at}</span>
+      <span className="light">{moment(done_at).format('DD/MM/YYYY HH:MM')}</span>
     </div>
     <div className="bold flex-align-center flex-justify-center">
       {amount_cents / 100} {amount_currency}
