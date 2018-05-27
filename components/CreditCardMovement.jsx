@@ -22,7 +22,7 @@ const CreditCardMovement = ({
         <span className="light">{moment(done_at).format('DD/MM/YYYY HH:MM')}</span>
       </div>
       <div className="bold flex-align-center flex-justify-center">
-        {amount_cents / 100} {amount_currency}
+        {(amount_cents / 100).toFixed(2)} {amount_currency}
       </div>
     </div>
   </div>
