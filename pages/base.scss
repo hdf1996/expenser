@@ -58,6 +58,11 @@
   align-items: flex-start;
 }
 
+.flex-align-stretch {
+  display: flex;
+  align-items: stretch;
+}
+
 .light {
   font-weight: 300;
 }
@@ -92,6 +97,29 @@
 
 .min-height-40 {
   min-height: 40px;
+}
+
+.color-block {
+  width: 10px;
+  height: 10px;
+  padding: 10px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+
+  &.blue {
+    background: linear-gradient(130deg,rgba(255,255,255,.5),rgba(255,255,255,0) 33%,rgba(255,255,255,0)),linear-gradient(104deg,#5ea0cf,#498ebe),linear-gradient(#5ea0cf,#5ea0cf)
+  }
+
+  &.orange {
+    background-image: linear-gradient(150deg,rgba(255,255,255,.5),rgba(255,255,255,0) 33%,rgba(255,255,255,0)),linear-gradient(117deg,#f60,#eb5600),linear-gradient(#f60,#f60);
+  }
+}
+
+.flex-1 {
+  flex: 1;
 }
 
 .unselectable {

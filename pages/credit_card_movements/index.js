@@ -42,6 +42,7 @@ class Index extends Component {
                                 reason={creditCardMovement.reason}
                                 amount_cents={creditCardMovement.amount_cents}
                                 amount_currency={creditCardMovement.amount_currency}
+                                credit_card_last_four_digits={creditCardMovement.credit_card_last_four_digits}
                                 done_at={creditCardMovement.done_at}/>
           ))}
         </InfiniteScrollContainer>
