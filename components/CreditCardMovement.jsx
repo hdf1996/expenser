@@ -3,6 +3,7 @@ import moment from 'moment';
 // TODO: Make this dinamic
 const COLORS = {
   '0803': 'orange',
+  '1261': 'yellow',
   '8662': 'blue'
 }
 
