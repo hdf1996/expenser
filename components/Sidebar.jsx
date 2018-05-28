@@ -8,7 +8,7 @@ const Sidebar = ({visible, onBlur}) => (
       <SidebarItem text="Inicio"
                    path="/"
                    key="home-sidebar"/>
-      <SidebarItem text="Ultimos consumos"
+      <SidebarItem text="Movimientos"
                    path="/credit_card_movements"
                    key="credit-card-movements-sidebar"/>
     </div>
