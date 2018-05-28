@@ -8,9 +8,6 @@ const Sidebar = ({visible, onBlur}) => (
       <SidebarItem text="Inicio"
                    path="/"
                    key="home-sidebar"/>
-      <SidebarItem text="Agregar gasto"
-                   path="/movements/new"
-                   key="add-expense-sidebar"/>
       <SidebarItem text="Ultimos consumos"
                    path="/credit_card_movements"
                    key="credit-card-movements-sidebar"/>
