@@ -20,7 +20,7 @@ const CreditCardMovement = ({
     <div className="flex-row flex-1 flex-justify-space-between">
       <div className="flex-column">
         <span className="bold">{reason}</span>
-        <span className="light">{moment(done_at).format('DD/MM/YYYY HH:MM')}</span>
+        <span className="light">{moment.utc(done_at).format('DD/MM/YYYY HH:mm')}</span>
       </div>
       <div className="bold flex-align-center flex-justify-center">
         {(amount_cents / 100).toFixed(2)} {amount_currency}
