@@ -36,7 +36,7 @@ class New extends Component {
 
   render () {
     return (
-      <Layout>
+      <Layout title="Nuevo movimiento">
         <Input value={this.state.reason}
                error={this.state.errors.reason}
                name="Razon"

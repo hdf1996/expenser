@@ -34,7 +34,7 @@ class Index extends Component {
       );
     }
     return (
-      <Layout className="items-list padding-top-15">
+      <Layout title="Movimientos" className="items-list padding-top-15">
         <InfiniteScrollContainer onNextPage={() => this.fetch()}
                                  loading={this.state.loading}>
           {this.state.creditCardMovements.map(creditCardMovement => (

@@ -17,7 +17,7 @@ class Index extends Component {
 
   render () {
     return (
-      <Layout>
+      <Layout title="Inicio">
         <Card title="Resumen"
               firstColumnName="Caja de ahorro"
               firstColumnValues={debt}

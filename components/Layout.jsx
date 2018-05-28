@@ -31,7 +31,7 @@ class Layout extends Component {
 
         <Sidebar visible={this.state.showSidebar}
                  onBlur={this.toggleSidebar}/>
-        <Header title="Tarjetas de credito"
+        <Header title={this.props.title}
                 onClick={this.toggleSidebar}
                 />
 
@@ -43,6 +43,10 @@ class Layout extends Component {
       </Fragment>
     )
   }
+}
+
+Layout.defaultProps = {
+  title: ''
 }
 
 export default Layout;
