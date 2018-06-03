@@ -4,6 +4,7 @@ import { Component } from 'react';
 import Button from '../../components/Button';
 import Layout from '../../components/Layout';
 import Spinner from '../../components/Spinner';
+import Label from '../../components/Label';
 import { show } from '../../services/creditCardMovements';
 
 const COLORS = {
@@ -42,6 +43,12 @@ class Show extends Component {
             <div className={`color-block ${COLORS[this.state.creditCardMovement.credit_card_last_four_digits]}`} />
             {this.state.creditCardMovement.credit_card_name}
           </h2>
+          <div className="padding-5 margin-top-15">
+            {this.state.creditCardMovement.labels.map(label => (
+              <Label value={label}
+                     color={COLORS[label]}/>
+            ))}
+          </div>
         </div>
         <h2 className="flex-align-self-end">{(this.state.creditCardMovement.amount_cents / 100).toFixed(2)} {this.state.creditCardMovement.amount_currency}</h2>
 

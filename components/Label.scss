@@ -1,0 +1,11 @@
+.label {
+  padding: 5px 8px;
+  display: inline-block;
+  border-radius: 10px;
+  margin-right: 5px;
+
+  &.label-red {
+    background: red;
+    color: white;
+  }
+}
