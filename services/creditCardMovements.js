@@ -5,6 +5,11 @@ const index = ({
   page
 }) => fetch(`${API_URL}/credit_card_movements?${queryString.stringify({page})}`).then(res => res.json())
 
+const show = ({
+  id
+}) => fetch(`${API_URL}/credit_card_movements/${id}`).then(res => res.json())
+
 export {
-  index
+  index,
+  show
 };

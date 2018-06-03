@@ -27,7 +27,7 @@ class Layout extends Component {
 
   render () {
     return (
-      <Fragment>
+      <div>
 
         <Sidebar visible={this.state.showSidebar}
                  onBlur={this.toggleSidebar}/>
@@ -37,10 +37,12 @@ class Layout extends Component {
 
         <div>
           <div className="container">
-            {this.props.children}
+            <div className={this.props.className}>
+              {this.props.children}
+            </div>
           </div>
         </div>
-      </Fragment>
+      </div>
     )
   }
 }

@@ -1,5 +1,6 @@
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
+import FloatButton from '../../components/FloatButton';
 
 import { Component } from 'react'
 
@@ -19,6 +20,8 @@ class Index extends Component {
                 thirdColumnValues={[PERIODS[card.period]]}
                 />
         ))}
+
+        <FloatButton path="/recurrent_payments/new"/>
       </Layout>
     )
   }

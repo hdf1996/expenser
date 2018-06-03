@@ -24,10 +24,10 @@ const create = ({
     body: JSON.stringify({
       movement: {
         reason,
-        amount_cents,
         amount_currency,
         origin,
-        done_at
+        done_at,
+        amount: amount_cents
       }
     })
   }

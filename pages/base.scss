@@ -63,6 +63,11 @@
   align-items: stretch;
 }
 
+.flex-align-self-end {
+  display: flex;
+  align-self: flex-end;
+}
+
 .light {
   font-weight: 300;
 }
@@ -93,6 +98,10 @@
 
 .padding-top-15 {
   padding-top: 15px;
+}
+
+.padding-bottom-60 {
+  padding-bottom: 60px;
 }
 
 .min-height-40 {
