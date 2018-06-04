@@ -13,6 +13,10 @@ const COLORS = {
   '8662': 'blue'
 }
 
+const LABEL_COLORS = {
+  'Corporativo': 'red'
+};
+
 class Show extends Component {
   state = { loading: true, creditCardMovement: null }
 
@@ -46,7 +50,7 @@ class Show extends Component {
           <div className="padding-5 margin-top-15">
             {this.state.creditCardMovement.labels.map(label => (
               <Label value={label}
-                     color={COLORS[label]}/>
+                     color={LABEL_COLORS[label]}/>
             ))}
           </div>
         </div>
