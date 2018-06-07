@@ -8,6 +8,11 @@
   height: calc(100vh - 60px);
 }
 
+.animated {
+  transition: 0.3s all ease-in;
+  height: auto;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -102,6 +107,15 @@
 
 .margin-5 {
   margin: 5px;
+}
+
+.margin-15 {
+  margin: 15px;
+}
+
+.hidden-height {
+  overflow: hidden;
+  height: 0px;
 }
 
 .padding-top-15 {

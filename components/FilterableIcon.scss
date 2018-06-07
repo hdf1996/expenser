@@ -1,0 +1,30 @@
+.filterable-icon {
+  width: 35px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  .width-3 {
+    width: 30%;
+    background: black;
+    min-height: 2px;
+    display: block;
+  }
+
+  .width-2 {
+    width: 60%;
+    background: black;
+    min-height: 2px;
+    display: block;
+  }
+
+
+  .width-1 {
+    width: 90%;
+    background: black;
+    min-height: 2px;
+    display: block;
+  }
+}

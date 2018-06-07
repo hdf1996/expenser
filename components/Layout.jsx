@@ -33,6 +33,8 @@ class Layout extends Component {
                  onBlur={this.toggleSidebar}/>
         <Header title={this.props.title}
                 onClick={this.toggleSidebar}
+                actionElement={this.props.actionElement}
+                actionEvent={this.props.actionEvent}
                 />
 
         <div>
@@ -48,7 +50,9 @@ class Layout extends Component {
 }
 
 Layout.defaultProps = {
-  title: ''
+  title: '',
+  actionElement: <div />,
+  actionEvent: () => {}
 }
 
 export default Layout;

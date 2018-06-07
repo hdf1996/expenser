@@ -5,6 +5,7 @@ import Spinner from '../../components/Spinner';
 import Layout from '../../components/Layout';
 import CreditCardMovement from '../../components/CreditCardMovement';
 import InfiniteScrollContainer from '../../components/InfiniteScrollContainer';
+import FilterableIcon from '../../components/FilterableIcon';
 import { presence, validate } from '../../validators';
 import { index } from '../../services/creditCardMovements';
 
@@ -25,6 +26,7 @@ class Index extends Component {
     })
   }
 
+  handleAction = () => this.setState({displayFilter: !this.state.displayFilter})
   render () {
     if (this.state.loading && this.state.creditCardMovements.length === 0) {
       return (
@@ -34,7 +36,13 @@ class Index extends Component {
       );
     }
     return (
-      <Layout title="Movimientos" className="items-list padding-top-15">
+      <Layout title="Movimientos" 
+              className="items-list"
+              actionElement={<FilterableIcon />}
+              actionEvent={this.handleAction}>
+        <div className={`${this.state.displayFilter ? '' : 'hidden-height'} animated`}>
+          <h2 className="margin-bottom-15">Filtros</h2>
+        </div>
         <InfiniteScrollContainer onNextPage={() => this.fetch()}
                                  loading={this.state.loading}>
           {this.state.creditCardMovements.map(creditCardMovement => (
