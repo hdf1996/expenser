@@ -5,10 +5,11 @@ const Input = ({
   name,
   onChange,
   type,
-  error
+  error,
+  horizontal
 }) => (
-  <div className="input-container">
-    <label className="light">{name}</label>
+  <div className={`input-container ${horizontal ? 'flex-row flex-align-center' : 'flex-column margin-bottom-15' }`}>
+    <label className={`light ${horizontal && 'margin-right-15' }`}>{name}</label>
     {error}
     <input className="input"
            type={type}
@@ -22,7 +23,8 @@ Input.defaultProps = {
   name: '',
   type: 'text',
   error: '',
-  onChange: () => {}
+  onChange: () => {},
+  horizontal: false
 }
 
 export default Input;

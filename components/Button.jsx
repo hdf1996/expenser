@@ -17,7 +17,7 @@ const Button = ({
 
 Button.defaultProps = {
   value: '',
-  float: true,
+  float: false,
   disabled: false,
   loading: false,
   onSubmit: () => {}

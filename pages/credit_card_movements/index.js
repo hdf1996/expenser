@@ -6,11 +6,14 @@ import Layout from '../../components/Layout';
 import CreditCardMovement from '../../components/CreditCardMovement';
 import InfiniteScrollContainer from '../../components/InfiniteScrollContainer';
 import FilterableIcon from '../../components/FilterableIcon';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 import { presence, validate } from '../../validators';
 import { index } from '../../services/creditCardMovements';
+import moment from 'moment';
 
 class Index extends Component {
-  state = { creditCardMovements: [], loading: true, nextPage: 1}
+  state = { creditCardMovements: [], loading: true, nextPage: 1, from: moment().startOf('month').format('YYYY-MM-DD'), to: moment().endOf('month').format('YYYY-MM-DD')}
 
   componentDidMount = () => this.fetch()
   fetch = () => {
@@ -27,6 +30,9 @@ class Index extends Component {
   }
 
   handleAction = () => this.setState({displayFilter: !this.state.displayFilter})
+  handleSearch = () => this.fetch()
+  handleChange = (field) => e => this.setState({[field]: e.target.value})
+
   render () {
     if (this.state.loading && this.state.creditCardMovements.length === 0) {
       return (
@@ -40,8 +46,19 @@ class Index extends Component {
               className="items-list"
               actionElement={<FilterableIcon />}
               actionEvent={this.handleAction}>
-        <div className={`${this.state.displayFilter ? '' : 'hidden-height'} animated`}>
+        <div className={`${this.state.displayFilter ? 'margin-bottom-15 height-250' : 'hidden-height'} animated`}>
           <h2 className="margin-bottom-15">Filtros</h2>
+          
+          <Input name="Fecha desde" 
+                 type="date"
+                 value={this.state.from}
+                 onChange={this.handleChange('from')} />
+          <Input name="Fecha hasta" 
+                 type="date"
+                 value={this.state.to}
+                 onChange={this.handleChange('to')} />
+          <Button value="Buscar"
+                  onClick={this.onSearch}/>
         </div>
         <InfiniteScrollContainer onNextPage={() => this.fetch()}
                                  loading={this.state.loading}>
