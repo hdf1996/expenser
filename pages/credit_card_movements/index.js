@@ -13,13 +13,13 @@ import { index } from '../../services/creditCardMovements';
 import moment from 'moment';
 
 class Index extends Component {
-  state = { creditCardMovements: [], loading: true, nextPage: 1, from: moment().startOf('month').format('YYYY-MM-DD'), to: moment().endOf('month').format('YYYY-MM-DD')}
+  state = { creditCardMovements:  [], loading: true, nextPage: 1, from: moment().startOf('month').format('YYYY-MM-DD'), to: moment().endOf('month').format('YYYY-MM-DD') }
 
   componentDidMount = () => this.fetch()
   fetch = () => {
-    if(this.state.nextPage === null) return;
+    if (this.state.nextPage === null) return;
     this.setState({ loading: true }, () => {
-      index({page: this.state.nextPage}).then(
+      index({ page: this.state.nextPage }).then(
         res => this.setState({
           creditCardMovements: [...this.state.creditCardMovements, ...res.page],
           loading: false,
@@ -29,46 +29,46 @@ class Index extends Component {
     })
   }
 
-  handleAction = () => this.setState({displayFilter: !this.state.displayFilter})
-  handleSearch = () => this.fetch()
-  handleChange = (field) => e => this.setState({[field]: e.target.value})
+  handleAction = () => this.setState({ displayFilter: !this.state.displayFilter })
+  handleSearch = () => (this.setState({ displayFilter: false, nextPage: 1, creditCardMovements: [] }));
+  handleChange = (field) => e => this.setState({ [field]: e.target.value })
 
-  render () {
+  render() {
     if (this.state.loading && this.state.creditCardMovements.length === 0) {
       return (
         <div className="flex-align-center flex-justify-center full-height full-width">
-          <Spinner color="orange"/>
+          <Spinner color="orange" />
         </div>
       );
     }
     return (
-      <Layout title="Movimientos" 
-              className="items-list"
-              actionElement={<FilterableIcon />}
-              actionEvent={this.handleAction}>
+      <Layout title="Movimientos"
+        className="items-list"
+        actionElement={<FilterableIcon />}
+        actionEvent={this.handleAction}>
         <div className={`${this.state.displayFilter ? 'margin-bottom-15 height-250' : 'hidden-height'} animated`}>
           <h2 className="margin-bottom-15">Filtros</h2>
-          
-          <Input name="Fecha desde" 
-                 type="date"
-                 value={this.state.from}
-                 onChange={this.handleChange('from')} />
-          <Input name="Fecha hasta" 
-                 type="date"
-                 value={this.state.to}
-                 onChange={this.handleChange('to')} />
+
+          <Input name="Fecha desde"
+            type="date"
+            value={this.state.from}
+            onChange={this.handleChange('from')} />
+          <Input name="Fecha hasta"
+            type="date"
+            value={this.state.to}
+            onChange={this.handleChange('to')} />
           <Button value="Buscar"
-                  onClick={this.onSearch}/>
+            onClick={this.handleSearch} />
         </div>
         <InfiniteScrollContainer onNextPage={() => this.fetch()}
-                                 loading={this.state.loading}>
+          loading={this.state.loading}>
           {this.state.creditCardMovements.map(creditCardMovement => (
             <CreditCardMovement id={creditCardMovement.id}
-                                reason={creditCardMovement.reason}
-                                amount_cents={creditCardMovement.amount_cents}
-                                amount_currency={creditCardMovement.amount_currency}
-                                credit_card_last_four_digits={creditCardMovement.credit_card_last_four_digits}
-                                done_at={creditCardMovement.done_at}/>
+              reason={creditCardMovement.reason}
+              amount_cents={creditCardMovement.amount_cents}
+              amount_currency={creditCardMovement.amount_currency}
+              credit_card_last_four_digits={creditCardMovement.credit_card_last_four_digits}
+              done_at={creditCardMovement.done_at} />
           ))}
         </InfiniteScrollContainer>
       </Layout>
