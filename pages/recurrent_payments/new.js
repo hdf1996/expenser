@@ -44,6 +44,12 @@ class New extends Component {
                type="number"
                onChange={this.onChange('value')}/>
 
+        <Input value={this.state.value_currency}
+               error={this.state.errors.value_currency}
+               name="Moneda"
+               type="string"
+               onChange={this.onChange('value_currency')}/>
+
         <Button value="Agregar"
                 disabled={!this.isValid() || this.state.loading}
                 loading={this.state.loading}
